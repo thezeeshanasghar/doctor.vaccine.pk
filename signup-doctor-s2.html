@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Sign Up</title>
+    <title>Clinic info</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -58,7 +58,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-header justify-content-between d-flex align-items-center">
-                                    <h4 class="card-title">Doctor Form</h4>
+                                    <h4 class="card-title">Clinic Information</h4>
                                 </div><!-- end card header -->
                                 <div class="card-body">          
                                 <form  id="myform" method="post" action="" style="padding-top: 10px;">
@@ -69,37 +69,18 @@
                                         </div>
                                     </div><!-- end row -->
                                     <div class="row mb-4">
-                                        <label for="email" class="col-sm-3 col-form-label">Email</label>
+                                        <label for="address" class="col-sm-3 col-form-label">Address</label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" name="email" id="email">
+                                            <input type="text" class="form-control" name="address" id="address">
                                         </div>
                                     </div><!-- end row -->
                                     <div class="row mb-4">
-                                        <label for="mobileNumber" class="col-sm-3 col-form-label">Mobile Number</label>
+                                        <label for="number" class="col-sm-3 col-form-label">Number</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control"  name="mobileNumber" id="mobileNumber">
+                                            <input type="number" class="form-control"  name="number" id="number">
                                         </div>
                                     </div><!-- end row -->
-                                    <div class="row mb-4">
-                                        <label for="password" class="col-sm-3 col-form-label">Password</label>
-                                        <div class="col-sm-9">
-                                            <input type="password" class="form-control"  name="password" id="password">
-                                        </div>
-                                    </div><!-- end row -->
-                                    
-                                    
-                                    <div class="row mb-4">
-                                        <label for="pmdc" class="col-sm-3 col-form-label">PMDC</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="pmdc" id="pmdc">
-                                        </div>
-                                    </div><!-- end row -->
-                                    <div class="row mb-4">
-                                        <label for="doctorType" class="col-sm-3 col-form-label">Doctor Type</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="doctorType" id="doctorType">
-                                        </div>
-                                    </div><!-- end row -->
+                      
 
                                     <div class="row justify-content-end">
                                         <div style="padding-left: 40%;">
@@ -143,19 +124,19 @@
     <!-- <script src="assets/js/app.js"></script> -->
     <script type="text/javascript">
         $(function () {
-
             $("#myform").submit(function (e) {
                 e.preventDefault();
-                var data = JSON.stringify({ "Name": $("#name").val(),"Email": $("#email").val(),"MobileNumber": $("#mobileNumber").val(),"Password": $("#password").val(),"IsApproved": false,"IsEnabled": false,"PMDC": $("#pmdc").val(),"DoctorType": $("#doctorType").val() })
+                var url      = window.location.href;
+                var DId = parseInt(url.substring(url.lastIndexOf("=")+1));
+                var data = JSON.stringify({ "Name": $("#name").val(),"Address": $("#address").val(),"Number": $("#number").val(),"DoctorId": DId })
                 console.log(data);
                 $.ajax({
                     type: "post",
-                    url: "http://localhost:5041/api/Doctor",
+                    url: "http://localhost:5041/api/clinic",
                     dataType: "json",
                     data: data,
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
-                        alert(data);
                     },
 
                 });
