@@ -39,6 +39,69 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <style>
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(173, 171, 171);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #3d0dec;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #3d0dec;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 30px;
+}
+
+.slider.round:before {
+  border-radius: 40%;
+}
+  </style>
 </head>
 
 <body>
@@ -80,12 +143,11 @@
                                             <input type="number" class="form-control"  name="number" id="number">
                                         </div>
                                     </div><!-- end row -->
-                      
-
+                        
                                     <div class="row justify-content-end">
                                         <div style="padding-left: 40%;">
                                             <div>
-                                                <button type="submit" class="btn btn-primary w-md">Submit</button>
+                                                <button type="submit" class="btn btn-primary w-md">Next</button>
                                             </div>
                                         </div><!-- end col -->
                                     </div><!-- end row -->

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Clinic Schedule</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+  * Template Name: NiceAdmin - v2.4.1
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <style>
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(173, 171, 171);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #3d0dec;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #3d0dec;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 30px;
+}
+
+.slider.round:before {
+  border-radius: 40%;
+}
+  </style>
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+   
+
+
+    <main id="main" class="main" style="padding-right: 10%;">
+
+
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <!-- end page title -->
+                    
+                            <div class="card">
+                                <div class="card-header justify-content-between d-flex align-items-center">
+                                    <h4 class="card-title">Clinic Schedule</h4>
+                                </div><!-- end card header -->
+                                <div class="card-body">          
+                                <form  id="myform" method="post" action="" style="padding-top: 10px;">
+                                    <div class="row">
+
+                                       <!-- Monday --> 
+                                        <div class="card"  style="padding-bottom: 20px;">
+                                            <div style="padding-top: 10px;">
+                                                <label>Monday</label>
+                                                <label class="switch" id="Monday" name="Monday" formControlName="Monday" style="left: 90%;">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                            <hr>
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:1 </label>
+                                                <label class="switch" id="MondayS1" name="MondayS1" formControlName="MondayS1">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                                
+                                            </div> 
+                                                
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:2 </label>
+                                                <label class="switch" id="MondayS2" name="MondayS2" formControlName="MondayS2">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                            </div>      
+                                        </div>
+
+                                        <!-- Tuesday --> 
+                                        <div class="card"  style="padding-bottom: 20px;">
+                                            <div style="padding-top: 10px;">
+                                                <label>Tuesday</label>
+                                                <label class="switch" id="Tuesday" name="Tuesday" formControlName="Tuesday" style="left: 90%;">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                            <hr>
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:1 </label>
+                                                <label class="switch" id="TuesdayS1" name="TuesdayS1" formControlName="TuesdayS1">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                                
+                                            </div> 
+                                                
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:2 </label>
+                                                <label class="switch" id="TuesdayS2" name="TuesdayS2" formControlName="TuesdayS2">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                            </div> 
+                                               
+                            
+                                               
+                                            
+                                        </div>
+
+                                        <!-- Wednesday --> 
+                                        <div class="card"  style="padding-bottom: 20px;">
+                                            <div style="padding-top: 10px;">
+                                                <label>Wednesday</label>
+                                                <label class="switch" id="Wednesday" name="Wednesday" formControlName="Wednesday" style="left: 88%;">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                            <hr>
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:1 </label>
+                                                <label class="switch" id="WednesdayS1" name="WednesdayS1" formControlName="WednesdayS1">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                                
+                                            </div> 
+                                                
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:2 </label>
+                                                <label class="switch" id="WednesdayS2" name="WednesdayS2" formControlName="WednesdayS2">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                            </div> 
+                                               
+                            
+                                               
+                                            
+                                        </div>
+
+                                        <!-- Thursday --> 
+                                        <div class="card"  style="padding-bottom: 20px;">
+                                            <div style="padding-top: 10px;">
+                                                <label>Thursday</label>
+                                                <label class="switch" id="Thursday" name="Thursday" formControlName="Thursday" style="left: 90%;">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                            <hr>
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:1 </label>
+                                                <label class="switch" id="ThursdayS1" name="ThursdayS1" formControlName="ThursdayS1">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                                
+                                            </div> 
+                                                
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:2 </label>
+                                                <label class="switch" id="ThursdayS2" name="ThursdayS2" formControlName="ThursdayS2">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                            </div> 
+                                               
+                            
+                                               
+                                            
+                                        </div>
+
+                                        <!-- Friday --> 
+                                        <div class="card"  style="padding-bottom: 20px;">
+                                            <div style="padding-top: 10px;">
+                                                <label>Friday</label>
+                                                <label class="switch" id="Friday" name="Friday" formControlName="Friday" style="left: 90%;">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                            <hr>
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:1 </label>
+                                                <label class="switch" id="FridayS1" name="FridayS1" formControlName="FridayS1">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                                
+                                            </div> 
+                                                
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:2 </label>
+                                                <label class="switch" id="FridayS2" name="FridayS2" formControlName="FridayS2">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                            </div> 
+                                               
+                            
+                                               
+                                            
+                                        </div>
+
+                                        <!-- Saturday --> 
+                                        <div class="card"  style="padding-bottom: 20px;">
+                                            <div style="padding-top: 10px;">
+                                                <label>Saturday</label>
+                                                <label class="switch" id="Saturday" name="Saturday" formControlName="Saturday" style="left: 90%;">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                            <hr>
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:1 </label>
+                                                <label class="switch" id="SaturdayS1" name="SaturdayS1" formControlName="SaturdayS1">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                                
+                                            </div> 
+                                                
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:2 </label>
+                                                <label class="switch" id="SaturdayS2" name="SaturdayS2" formControlName="SaturdayS2">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                            </div> 
+                                               
+                            
+                                               
+                                            
+                                        </div>
+
+                                        <!-- Sunday --> 
+                                        <div class="card"  style="padding-bottom: 20px;">
+                                            <div style="padding-top: 10px;">
+                                                <label>Sunday</label>
+                                                <label class="switch" id="Sunday" name="Sunday" formControlName="Sunday" style="left: 90%;">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                            <hr>
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:1 </label>
+                                                <label class="switch" id="SundayS1" name="SundayS1" formControlName="SundayS1">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                                
+                                            </div> 
+                                                
+                                            <div style="padding-top: 2%;">
+                                                <label class="VerticalAlignMiddle">Session:2 </label>
+                                                <label class="switch" id="SundayS2" name="SundayS2" formControlName="SundayS2">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div class="row" style="padding-top: 2%;">
+                                                    <div class="col">
+                                                    
+                                                        <label >Start Time</label>
+                                                        <div style="padding-top: 2%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label style="padding-left: 80%;">End Time</label>
+                                                        <div style="padding-top: 2%; padding-left: 80%;">
+                                                            <input type="time" id="appt" name="appt">
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                            </div> 
+                                               
+                            
+                                               
+                                            
+                                        </div>
+                                      
+                                    </div>
+                        
+                                        
+                           
+                                    <div class="row justify-content-end">
+                                        <div style="padding-left: 50%;">
+                                            <div>
+                                                <button type="submit" class="btn btn-primary w-md">Submit</button>
+                                            </div>
+                                        </div><!-- end col -->
+                                    </div><!-- end row -->
+                                </form><!-- end form -->
+                                </div>
+                            </div><!-- end card -->
+                        
+                    <!-- End Form Layout -->
+                </div> <!-- container-fluid -->
+            </div><!-- End Page-content -->
+        </div>
+
+    </main><!-- End #main -->
+
+
+
+
+
+    <!-- Vendor JS Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.min.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <!-- <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script> -->
+
+    <!-- <script src="assets/js/app.js"></script> -->
+    <script type="text/javascript">
+        $(function () {
+            $("#myform").submit(function (e) {
+                e.preventDefault();
+                var url      = window.location.href;
+                var DId = parseInt(url.substring(url.lastIndexOf("=")+1));
+                var data = JSON.stringify({ "Name": $("#name").val(),"Address": $("#address").val(),"Number": $("#number").val(),"DoctorId": DId })
+                console.log(data);
+                $.ajax({
+                    type: "post",
+                    url: "http://localhost:5041/api/clinic",
+                    dataType: "json",
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                    },
+
+                });
+                document.getElementById("myform").reset();
+
+            });
+        });
+    </script>
+
+</body>
+
+</html>
