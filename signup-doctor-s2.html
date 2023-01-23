@@ -185,23 +185,42 @@ input:checked + .slider:before {
 
     <!-- <script src="assets/js/app.js"></script> -->
     <script type="text/javascript">
+        var drData;
+        $(window).on("load", function () {
+            drData=JSON.parse(localStorage.getItem("drData"));
+        });
         $(function () {
             $("#myform").submit(function (e) {
                 e.preventDefault();
-                var url      = window.location.href;
-                var DId = parseInt(url.substring(url.lastIndexOf("=")+1));
-                var data = JSON.stringify({ "Name": $("#name").val(),"Address": $("#address").val(),"Number": $("#number").val(),"DoctorId": DId })
-                console.log(data);
+                if(drData){
+                    drData.clinic = {
+                    name: $("#name").val(),
+                    address: $("#address").val(),
+                    number: $("#number").val()
+                    };
+                }else{
+                    alert("Please add Dr data");
+                }
+                // var url      = window.location.href;
+                // var DId = parseInt(url.substring(url.lastIndexOf("=")+1));
+                //var data = JSON.stringify({ "Name": $("#name").val(),"Address": $("#address").val(),"Number": $("#number").val(),})
+                // console.log(data);
+                //console.log(JSON.stringify(drData))
+                
                 $.ajax({
                     type: "post",
-                    url: "http://localhost:5041/api/clinic",
+                    url: "http://localhost:5041/api/doctor",
                     dataType: "json",
-                    data: data,
+                    data: JSON.stringify(drData),
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
+                        console.log("On success ",data)
+                        // window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s3.html?id="+data)
+
                     },
 
                 });
+                
                 document.getElementById("myform").reset();
 
             });

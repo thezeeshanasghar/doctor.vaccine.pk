@@ -143,25 +143,38 @@
     <!-- <script src="assets/js/app.js"></script> -->
     <script type="text/javascript">
         $(function () {
-
             $("#myform").submit(function (e) {
                 e.preventDefault();
-                var data = JSON.stringify({ "Name": $("#name").val(),"Email": $("#email").val(),"MobileNumber": $("#mobileNumber").val(),"Password": $("#password").val(),"IsApproved": false,"IsEnabled": false,"PMDC": $("#pmdc").val(),"DoctorType": $("#doctorType").val() })
-                console.log(data);
-                $.ajax({
-                    type: "post",
-                    url: "http://localhost:5041/api/Doctor",
-                    dataType: "json",
-                    data: data,
-                    contentType: "application/json; charset=utf-8",
-                    success: function (data) {
-                        window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s2.html?id="+data)
-                    },
+                var dr ={
+                    name : $("#name").val(),
+                    email : $("#email").val(),
+                    mobileNumber:$("#mobileNumber").val(),
+                    password:$("#password").val(),
+                    isApproved:false,
+                    isEnabled:false,
+                    pmdc:$("#pmdc").val(),
+                    doctorType:$("#doctorType").val(), 
 
-                });
+
+                };
+                localStorage.setItem("drData", JSON.stringify(dr));
+                //var data = JSON.stringify({ "Name": $("#name").val(),"Email": email = $("#email").val(),"MobileNumber": $("#mobileNumber").val(),"Password": $("#password").val(),"IsApproved": false,"IsEnabled": false,"PMDC": $("#pmdc").val(),"DoctorType": $("#doctorType").val() })
+                console.log(JSON.stringify(localStorage.getItem("drData")));
+                window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s2.html");
+                // $.ajax({
+                //     type: "post",
+                //     url: "http://localhost:5041/api/Doctor",
+                //     dataType: "json",
+                //     data: data,
+                //     contentType: "application/json; charset=utf-8",
+                //     success: function (data) {
+                //         console.log(data)
+                //         // window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s2.html?id="+data)
+                //         // window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s2.html")
+                //     },
+                // });
                 
-
-            });
+            });// no, its front end
         });
     </script>
 

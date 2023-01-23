@@ -130,7 +130,7 @@ input:checked + .slider:before {
                                         <div class="card"  style="padding-bottom: 20px;">
                                             <div style="padding-top: 10px;">
                                                 <label>Monday</label>
-                                                <label class="switch" id="Monday" name="Monday" formControlName="Monday" style="left: 90%;">
+                                                <label class="switch" id="day" name="Monday" formControlName="Monday" style="left: 90%;">
                                                     <input type="checkbox">
                                                     <span class="slider round"></span>
                                                 </label>
@@ -192,7 +192,7 @@ input:checked + .slider:before {
                                         <div class="card"  style="padding-bottom: 20px;">
                                             <div style="padding-top: 10px;">
                                                 <label>Tuesday</label>
-                                                <label class="switch" id="Tuesday" name="Tuesday" formControlName="Tuesday" style="left: 90%;">
+                                                <label class="switch" id="day" name="Tuesday" formControlName="Tuesday" style="left: 90%;">
                                                     <input type="checkbox">
                                                     <span class="slider round"></span>
                                                 </label>
@@ -258,7 +258,7 @@ input:checked + .slider:before {
                                         <div class="card"  style="padding-bottom: 20px;">
                                             <div style="padding-top: 10px;">
                                                 <label>Wednesday</label>
-                                                <label class="switch" id="Wednesday" name="Wednesday" formControlName="Wednesday" style="left: 88%;">
+                                                <label class="switch" id="day" name="Wednesday" formControlName="Wednesday" style="left: 88%;">
                                                     <input type="checkbox">
                                                     <span class="slider round"></span>
                                                 </label>
@@ -324,7 +324,7 @@ input:checked + .slider:before {
                                         <div class="card"  style="padding-bottom: 20px;">
                                             <div style="padding-top: 10px;">
                                                 <label>Thursday</label>
-                                                <label class="switch" id="Thursday" name="Thursday" formControlName="Thursday" style="left: 90%;">
+                                                <label class="switch" id="day" name="Thursday" formControlName="Thursday" style="left: 90%;">
                                                     <input type="checkbox">
                                                     <span class="slider round"></span>
                                                 </label>
@@ -390,7 +390,7 @@ input:checked + .slider:before {
                                         <div class="card"  style="padding-bottom: 20px;">
                                             <div style="padding-top: 10px;">
                                                 <label>Friday</label>
-                                                <label class="switch" id="Friday" name="Friday" formControlName="Friday" style="left: 90%;">
+                                                <label class="switch" id="day" name="Friday" formControlName="Friday" style="left: 90%;">
                                                     <input type="checkbox">
                                                     <span class="slider round"></span>
                                                 </label>
@@ -456,7 +456,7 @@ input:checked + .slider:before {
                                         <div class="card"  style="padding-bottom: 20px;">
                                             <div style="padding-top: 10px;">
                                                 <label>Saturday</label>
-                                                <label class="switch" id="Saturday" name="Saturday" formControlName="Saturday" style="left: 90%;">
+                                                <label class="switch" id="day" name="Saturday" formControlName="Saturday" style="left: 90%;">
                                                     <input type="checkbox">
                                                     <span class="slider round"></span>
                                                 </label>
@@ -522,7 +522,7 @@ input:checked + .slider:before {
                                         <div class="card"  style="padding-bottom: 20px;">
                                             <div style="padding-top: 10px;">
                                                 <label>Sunday</label>
-                                                <label class="switch" id="Sunday" name="Sunday" formControlName="Sunday" style="left: 90%;">
+                                                <label class="switch" id="day" name="Sunday" formControlName="Sunday" style="left: 90%;">
                                                     <input type="checkbox">
                                                     <span class="slider round"></span>
                                                 </label>
@@ -548,12 +548,8 @@ input:checked + .slider:before {
                                                             <input type="time" id="appt" name="appt">
                                                         </div>
                                                     </div>
-                                                    
-
                                                 </div>
-                                                
                                             </div> 
-                                                
                                             <div style="padding-top: 2%;">
                                                 <label class="VerticalAlignMiddle">Session:2 </label>
                                                 <label class="switch" id="SundayS2" name="SundayS2" formControlName="SundayS2">
@@ -574,14 +570,8 @@ input:checked + .slider:before {
                                                             <input type="time" id="appt" name="appt">
                                                         </div>
                                                     </div>
-                                                    
-
                                                 </div>
                                             </div> 
-                                               
-                            
-                                               
-                                            
                                         </div>
                                       
                                     </div>
@@ -632,16 +622,17 @@ input:checked + .slider:before {
             $("#myform").submit(function (e) {
                 e.preventDefault();
                 var url      = window.location.href;
-                var DId = parseInt(url.substring(url.lastIndexOf("=")+1));
-                var data = JSON.stringify({ "Name": $("#name").val(),"Address": $("#address").val(),"Number": $("#number").val(),"DoctorId": DId })
+                var CId = parseInt(url.substring(url.lastIndexOf("=")+1));
+                var data = JSON.stringify({ "Day": $("#day").val(),"Start": $("#appt").val(),"End": $("#appt").val(),"Session1": $("#SundayS1").val(),"Session2": $("#SundayS2").val(),"CId": CId })
                 console.log(data);
                 $.ajax({
                     type: "post",
-                    url: "http://localhost:5041/api/clinic",
+                    url: "http://localhost:5041/api/clinictiming",
                     dataType: "json",
                     data: data,
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
+                       alert('helo');
                     },
 
                 });
