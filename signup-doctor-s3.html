@@ -557,7 +557,19 @@
     </script>
 
     <script type="text/javascript">
+        var drData;
+        $(window).on("load", function () {
+            drData=JSON.parse(localStorage.getItem("drData"));
+            if(!drData){
+                alert("Please add Dr details first. Go to S1 form");
+            }else if(!drData.clinic){
+                alert("Please add clinic details first. Go to S2 form"); 
+            }
+        });
         $(function () {
+            function getClinicTiming(day, session, start, end){
+                return {Day : day, Session : session, StartTime : start, EndTime : end};
+            }
             $("#myform").submit(function (e) {
                 e.preventDefault();
                 var ClinicData = [];
@@ -568,9 +580,7 @@
                     if (Session1) {
                         var StartTime = $("#mS").val();
                         var EndTime = $("#mE").val();
-                        var monS1 ='{"Day": "' + Day + '" , "Session": "Session1", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-
-                        ClinicData.push(monS1);
+                        ClinicData.push(getClinicTiming(Day, "Session1", StartTime, EndTime));
                     }
                     else {
 
@@ -579,8 +589,7 @@
                     if (Session2) {
                         var StartTime = $("#mS2").val();
                         var EndTime = $("#mE2").val();
-                        var monS2 = '{"Day": "' + Day + '" , "Session": "Session2", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(monS2);
+                        ClinicData.push(getClinicTiming(Day, "Session2", StartTime, EndTime));
                     }
                 }
 
@@ -593,9 +602,7 @@
                     if (Session1) {
                         var StartTime = $("#Ts").val();
                         var EndTime = $("#Te").val();
-                        var tueS1 = '{"Day": "' + Day + '" , "Session": "Session1", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-
-                        ClinicData.push(tueS1);
+                        ClinicData.push(getClinicTiming(Day, "Session1", StartTime, EndTime));
 
                     }
                     else {
@@ -605,10 +612,10 @@
                     if (Session2) {
                         var StartTime = $("#Ts2").val();
                         var EndTime = $("#Te2").val();
-                        var tueS2 = '{"Day": "' + Day + '" , "Session": "Session2", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(tueS2);
+                        ClinicData.push(getClinicTiming(Day, "Session2", StartTime, EndTime));
                     }
                 }
+                // wwednesday
                 var Wednesday = $("#WednesdayC").is(':checked');
                 if (Wednesday) {
                     var Day = $("#Wednesdaytxt").text();
@@ -617,15 +624,13 @@
                     if (Session1) {
                         var StartTime = $("#wS").val();
                         var EndTime = $("#wE").val();
-                        var wedS1 = '{"Day": "' + Day + '" , "Session": "Session1", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(wedS1)
+                        ClinicData.push(getClinicTiming(Day, "Session1", StartTime, EndTime));
                     }
                     var Session2 = $("#wednesdayS2").is(':checked');
                     if (Session2) {
                         var StartTime = $("#wS2").val();
                         var EndTime = $("#wE2").val();
-                        var wedS2 = '{"Day": "' + Day + '" , "Session": "Session2", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(wedS2)
+                        ClinicData.push(getClinicTiming(Day, "Session2", StartTime, EndTime));
 
                     }
                 }
@@ -639,20 +644,18 @@
                     if (Session1) {
                         var StartTime = $("#thuS").val();
                         var EndTime = $("#thuE").val();
-                        var thuS1 = '{"Day": "' + Day + '" , "Session": "Session1", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(thuS1)
+                        ClinicData.push(getClinicTiming(Day, "Session1", StartTime, EndTime));
 
                     }
                     var Session2 = $("#thursdayS2").is(':checked');
                     if (Session2) {
                         var StartTime = $("#thuS2").val();
                         var EndTime = $("#thuE2").val();
-                        var thuS2 = '{"Day": "' + Day + '" , "Session": "Session2", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(thuS2)
+                        ClinicData.push(getClinicTiming(Day, "Session2", StartTime, EndTime));
                     }
                 }
                 
-
+                // friday
                 var Friday = $("#FridayC").is(':checked');
                 if (Friday) {
                     var Day = $("#Fridaytxt").text();
@@ -660,16 +663,14 @@
                     if (Session1) {
                         var StartTime = $("#fS").val();
                         var EndTime = $("#fE").val();
-                        var friS1 = '{"Day": "' + Day + '" , "Session": "Session1", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(friS1)
+                        ClinicData.push(getClinicTiming(Day, "Session1", StartTime, EndTime));
 
                     }
                     var Session2 = $("#fridayS2").is(':checked');
                     if (Session2) {
                         var StartTime = $("#fS2").val();
                         var EndTime = $("#fE2").val();
-                        var friS2 = '{"Day": "' + Day + '" , "Session": "Session2", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(friS2)
+                        ClinicData.push(getClinicTiming(Day, "Session2", StartTime, EndTime));
 
                     }
                 }
@@ -684,16 +685,14 @@
                     if (Session1) {
                         var StartTime = $("#SatS").val();
                         var EndTime = $("#SatE").val();
-                        var satS1 = '{"Day": "' + Day + '" , "Session": "Session1", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(satS1)
+                        ClinicData.push(getClinicTiming(Day, "Session1", StartTime, EndTime));
 
                     }
                     var Session2 = $("#saturdayS2").is(':checked');
                     if (Session2) {
                         var StartTime = $("#SatS2").val();
                         var EndTime = $("#SatE2").val();
-                        var satS2 = '{"Day": "' + Day + '" , "Session": "Session2", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(satS2)
+                        ClinicData.push(getClinicTiming(Day, "Session2", StartTime, EndTime));
 
                     }
                 }
@@ -707,8 +706,7 @@
                     if (Session1) {
                         var StartTime = $("#sunS").val();
                         var EndTime = $("#sunE").val();
-                        var sunS1 ='{"Day": "' + Day + '" , "Session": "Session1", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(sunS1)
+                        ClinicData.push(getClinicTiming(Day, "Session1", StartTime, EndTime));
 
                     }
                    
@@ -716,44 +714,31 @@
                     if (Session2) {
                         var StartTime = $("#sunS2").val();
                         var EndTime = $("#sunE2").val();
-                        var sunS2 = '{"Day": "' + Day + '" , "Session": "Session2", "StartTime": "' + StartTime + '" , "EndTime": "' + EndTime + '"}';
-                        ClinicData.push(sunS2)
+                        ClinicData.push(getClinicTiming(Day, "Session2", StartTime, EndTime));
 
                     }
                 }
               
-                // var data = JSON.stringify({ "Day": $("#Mondaytxt").text(), "Session1": $("#mondayS1").is(':checked') ? true : false, "Start": $("#mS").val(), "End": $("#mE").val(), "Session2": $("#mondayS2").is(':checked') ? true : false, "StartS2": $("#mS2").val(), "EndS2": $("#mE2").val() })
-                // var dataTue = JSON.stringify({ "Day": $("#Tuesdaytxt").text(), "Session1": $("#tuesdayS1").is(':checked') ? true : false, "Start": $("#Ts").val(), "End": $("#Te").val(), "Session2": $("#tuesdayS2").is(':checked') ? true : false, "StartS2": $("#Ts2").val(), "EndS2": $("#Te2").val() })
-                // var checkBox = document.getElementById("MondayC");
-                // if (checkBox.checked == true){
-                //     console.log(data);
+                if(drData && drData.clinic){
+                    drData.clinic.clinicTiming = ClinicData;
+                    console.log(JSON.stringify(drData));
+                    $.ajax({
+                        type: "post",
+                        url: "http://localhost:5041/api/doctor",
+                        dataType: "json",
+                        data: JSON.stringify(drData),
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            console.log("On success ",data)
+                            alert('sucess');
 
-                // }
-
-                var test = ClinicData;
+                        },
+                    });               
+                }
+                else{
+                    alert("Pleae fill S1, S2 first");
+                }
                 
-                console.log(JSON.stringify(ClinicData));
-                
-                // console.log(dataTue);
-                $.ajax({
-                    type: "post",
-                    url: "http://localhost:5041/api/clinictiming",
-                    dataType: "json",
-                    data: JSON.stringify(ClinicData),
-                    contentType: "application/json; charset=utf-8",
-                    success: function (data) {
-                       debugger
-                        alert(data.Message);
-                    },
-                    error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        console.log(XMLHttpRequest.statusText);
-                        console.log(textStatus);
-                        console.log(errorThrown);
-                    }
-
-                });
-                // document.getElementById("myform").reset();
-
             });
         });
     </script>

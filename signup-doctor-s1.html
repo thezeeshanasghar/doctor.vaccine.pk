@@ -158,23 +158,11 @@
 
                 };
                 localStorage.setItem("drData", JSON.stringify(dr));
-                //var data = JSON.stringify({ "Name": $("#name").val(),"Email": email = $("#email").val(),"MobileNumber": $("#mobileNumber").val(),"Password": $("#password").val(),"IsApproved": false,"IsEnabled": false,"PMDC": $("#pmdc").val(),"DoctorType": $("#doctorType").val() })
                 console.log(JSON.stringify(localStorage.getItem("drData")));
                 window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s2.html");
-                // $.ajax({
-                //     type: "post",
-                //     url: "http://localhost:5041/api/Doctor",
-                //     dataType: "json",
-                //     data: data,
-                //     contentType: "application/json; charset=utf-8",
-                //     success: function (data) {
-                //         console.log(data)
-                //         // window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s2.html?id="+data)
-                //         // window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s2.html")
-                //     },
-                // });
+            
                 
-            });// no, its front end
+            });
         });
     </script>
 

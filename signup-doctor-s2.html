@@ -201,27 +201,9 @@ input:checked + .slider:before {
                 }else{
                     alert("Please add Dr data");
                 }
-                // var url      = window.location.href;
-                // var DId = parseInt(url.substring(url.lastIndexOf("=")+1));
-                //var data = JSON.stringify({ "Name": $("#name").val(),"Address": $("#address").val(),"Number": $("#number").val(),})
-                // console.log(data);
-                //console.log(JSON.stringify(drData))
-                
-                $.ajax({
-                    type: "post",
-                    url: "http://localhost:5041/api/doctor",
-                    dataType: "json",
-                    data: JSON.stringify(drData),
-                    contentType: "application/json; charset=utf-8",
-                    success: function (data) {
-                        console.log("On success ",data)
-                        // window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s3.html?id="+data)
-
-                    },
-
-                });
-                
-                document.getElementById("myform").reset();
+                localStorage.setItem("drData", JSON.stringify(drData));
+                window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s3.html");
+             
 
             });
         });
