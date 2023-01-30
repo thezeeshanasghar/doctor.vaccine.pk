@@ -560,12 +560,14 @@
         var drData;
         $(window).on("load", function () {
             drData=JSON.parse(localStorage.getItem("drData"));
+            console.log(drData)
             if(!drData){
                 alert("Please add Dr details first. Go to S1 form");
             }else if(!drData.clinic){
                 alert("Please add clinic details first. Go to S2 form"); 
             }
         });
+        console.log(drData)
         $(function () {
             function getClinicTiming(day, session, start, end){
                 return {Day : day, Session : session, StartTime : start, EndTime : end};
@@ -698,7 +700,7 @@
                 }
 
                 //sunday
-
+2
                 var Sunday = $("#SundayC").is(':checked');
                 if (Sunday) {
                     var Day = $("#Sundaytxt").text();
@@ -722,19 +724,12 @@
                 if(drData && drData.clinic){
                     drData.clinic.clinicTiming = ClinicData;
                     console.log(JSON.stringify(drData));
-                    $.ajax({
-                        type: "post",
-                        url: "http://localhost:5041/api/doctor",
-                        dataType: "json",
-                        data: JSON.stringify(drData),
-                        contentType: "application/json; charset=utf-8",
-                        success: function (data) {
-                            console.log("On success ",data)
-                            alert('sucess');
-
-                        },
-                    });               
+                   
+                    localStorage.setItem("drData", JSON.stringify(drData));
+                  
+                    window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s4.html");               
                 }
+
                 else{
                     alert("Pleae fill S1, S2 first");
                 }
