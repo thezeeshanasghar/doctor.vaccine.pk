@@ -188,6 +188,7 @@ input:checked + .slider:before {
         var drData;
         $(window).on("load", function () {
             drData=JSON.parse(localStorage.getItem("drData"));
+            console.log(drData)
         });
         $(function () {
             $("#myform").submit(function (e) {
@@ -202,6 +203,7 @@ input:checked + .slider:before {
                     alert("Please add Dr data");
                 }
                 localStorage.setItem("drData", JSON.stringify(drData));
+              
                 window.location.assign("http://localhost/doctor.vaccine.pk/signup-doctor-s3.html");
              
 
