@@ -163,8 +163,10 @@
 
                   }
                   else{
+                    localStorage.setItem("drData", JSON.stringify(response));
+                    console.log(JSON.stringify(localStorage.getItem("drData")));
                     
-                    window.location.assign("http://localhost/admin.vaccine.pk/index.html")
+                    window.location.assign("/index.html")
                     
                     
 

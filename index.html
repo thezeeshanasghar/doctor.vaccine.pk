@@ -53,11 +53,14 @@
 
     <div class="pagetitle">
       <h1>Dashboard</h1>
+      
+
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
+        <p id="doctorName" style="padding-left: 90%;"></p>
       </nav>
     </div><!-- End Page Title -->
     <div>
@@ -65,6 +68,7 @@
         <i class="fa-solid fa-user-plus"></i>
         <i class="fa-sharp fa-solid fa-exclamation"></i>
         <i class="fa-solid fa-suitcase-medical"></i>
+       
         
     </div>
 
@@ -129,7 +133,16 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script>
+  <script type="text/javascript">
+    var drData;
+    $(window).on("load", function () {
+        drData=JSON.parse(localStorage.getItem("drData"));
+        console.log(drData)
+        $("#doctorName").html(drData.Name)
+    });
+
+  </script>
+  <!-- <script>
     function approved(approvedBool) {
         $.get(`http://localhost:5041/api/doctor/approved/${approvedBool}`, function (data, status) {
             console.log(data);
@@ -185,7 +198,7 @@
         });
     }
 
-</script>
+</script> -->
 
 </body>
 
