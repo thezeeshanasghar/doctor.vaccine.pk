@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Clinic Schedule</title>
+    <title>Brand Amount</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -31,7 +31,6 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/data.css" rel="stylesheet">
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.1
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -57,45 +56,55 @@
 
 
         <div class="pagetitle">
-            <h1>Clinic Form</h1>
+            <h1>Brand Inventory</h1>
             <nav>
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Clinic Form</li>
+                <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
+                <li class="breadcrumb-item active">Brand Amount</li>
               </ol>
             </nav>
           </div><!-- End Page Title -->
-        <div class="main-content">
-            <div class="page-content">
-               
-                    <!-- end page title -->
-                  
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Clinic Form</h4>
-                                </div><!-- end card header -->
-                                <div class="card-body">          
-                                <form  id="myform" method="post" action="" style="padding-top: 10px;">
-                                    <div class="form__group field">
-                                        <label for="date">From Date</label>
-                                        <input type="date" class="form__field" placeholder="date" name="date" id='date' required />      </div>
-                                        <div class="form__group field">
-                                            <label for="todate">To Date</label>
-                                            <input type="date" class="form__field" placeholder="todate" name="todate" id='todate' required />      </div>
-                                            <h1 style="padding: 10px;">Clinics</h1>
-                                            <div>
-                                                <button type="submit" class="btn btn-primary w-md">
-                                                    Go
-                                                </button>
-                                            </div>
-                                </form><!-- end form -->
+          <section class="section dashboard">
+            <div class="row" id="myvaccinedata">
+                <div class="row">
+                    <!-- Left side columns -->
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card recent-sales overflow-auto">
+                                    <div class="filter">
+                                        <a class="icon" href="#" data-bs-toggle="dropdown" style="float: right"><i
+                                                class="fa fa-plus"></i></a>
+                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                            <li>
+                                                <a class="dropdown-item" href="/vaccine/Add-vaccine.html">Add
+                                                    Brand</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">Brand Amount</h5>
+
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Vaccine Name</th>
+                                                    <th scope="col">Brand Name</th>
+                                                    <th scope="col">Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="amountData"></tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div><!-- end card -->
-                        
-                    <!-- End Form Layout -->
-                <!-- container-fluid -->
-            </div><!-- End Page-content -->
-        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main><!-- End #main -->
 
