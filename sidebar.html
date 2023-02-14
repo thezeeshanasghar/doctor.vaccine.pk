@@ -1,87 +1,150 @@
-    <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
+ <!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
 
-        <ul class="sidebar-nav" id="sidebar-nav">
-
-            <li class="nav-item">
-                <a class="nav-link " href="/index.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-menu-button-wide"></i><span>Vaccine</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-                  <li>
-                    <a href="/vaccine//Add-vaccine.html">
-                      <i class="bi bi-circle"></i><span>Add New</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/vaccine//vaccines.html">
-                      <i class="bi bi-circle"></i><span>All Vaccines</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-            <li class="nav-item">
-                <a class="nav-link " href="/doctor.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Doctors</span>
-                </a>
-            </li><!-- End Soctor Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="/clinic_schedule.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Clinic Schedule</span>
-                </a>
-            </li><!-- End Clinic shecdule Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="/brandInventory.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Brand Inventory</span>
-                </a>
-            </li><!-- End Brand inventory Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="/brandAmount.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Brand Amount</span>
-                </a>
-            </li><!-- End Brand Amount Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="/edit_doctor.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Edit Profile</span>
-                </a>
-            </li><!-- End Edit Profile Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="/password_change.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Password Change</span>
-                </a>
-            </li><!-- End Password Change Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="patient.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Patients</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="index.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Messages</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="add-inventory.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Add inventory</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
+    <ul class="sidebar-nav" id="sidebar-nav">
+    
+      <li class="nav-item">
+        <a class="nav-link " href="/index.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Brand Amount</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/add_brandAmount.html">
+              <i class="bi bi-circle"></i><span>Add New</span>
+            </a>
+          </li>
+          <li>
+            <a href="/brandAmount.html">
+              <i class="bi bi-circle"></i><span>Brand Amount</span>
+            </a>
+          </li>
         </ul>
+      </li>
+    
+     
+    
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Brand Inventory</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+         
+          <li>
+            <a href="/add_brandInventory.html">
+              <i class="bi bi-circle"></i><span>Add brand Inventory</span>
+            </a>
+          </li>
+          <li>
+            <a href="/brandInventory.html">
+              <i class="bi bi-circle"></i><span>All Brands Inventory</span>
+            </a>
+          </li>
+         
+        </ul>
+      </li><!-- End Forms Nav -->
+    
+      <!-- <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Doses</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+         
+          <li>
+            <a href="/dose//dose.html">
+              <i class="bi bi-circle"></i><span>All Doses</span>
+            </a>
+          </li>
+        </ul>
+      </li>End Tables Nav -->
+    
+      <!-- <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Doctor</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/doctor//approved.html">
+              <i class="bi bi-circle"></i><span>Approved</span>
+            </a>
+          </li>
+          <li>
+            <a href="/doctor//not-approved.html">
+              <i class="bi bi-circle"></i><span>Not Approved</span>
+            </a>
+          </li>
+         
+        </ul>
+      </li>End Charts Nav -->
+    
+      <!-- <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="icons-bootstrap.html">
+              <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
+            </a>
+          </li>
+          <li>
+            <a href="icons-remix.html">
+              <i class="bi bi-circle"></i><span>Remix Icons</span>
+            </a>
+          </li>
+          <li>
+            <a href="icons-boxicons.html">
+              <i class="bi bi-circle"></i><span>Boxicons</span>
+            </a>
+          </li>
+        </ul>
+      </li>End Icons Nav -->
+    
+      <li class="nav-heading">Pages</li>
 
+    
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/doctor.html">
+          <i class="bi bi-envelope"></i>
+          <span>Doctor details</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+    
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/clinic_schedule.html">
+          <i class="bi bi-card-list"></i>
+          <span>CLinic Schedule</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+    
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/edit_doctor.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Edit Doctor Profile</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+    
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/password_change.html">
+          <i class="bi bi-dash-circle"></i>
+          <span>Chaange Password</span>
+        </a>
+      </li><!-- End Error 404 Page Nav -->
+    
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-blank.html">
+          <i class="bi bi-file-earmark"></i>
+          <span>Blank</span>
+        </a>
+      </li><!-- End Blank Page Nav -->
+    
+    </ul>
+    
     </aside><!-- End Sidebar-->
+    
