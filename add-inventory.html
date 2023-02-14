@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Brand Inventory</title>
+    <title>Add Inventory</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -31,6 +31,7 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+   
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.1
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -56,55 +57,49 @@
 
 
         <div class="pagetitle">
-            <h1>Brand Inventory</h1>
+            <h1>Inventory</h1>
             <nav>
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-                <li class="breadcrumb-item active">Brand Inventory</li>
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Inventory</li>
               </ol>
             </nav>
           </div><!-- End Page Title -->
-          <section class="section dashboard">
-            <div class="row" id="myvaccinedata">
-                <div class="row">
-                    <!-- Left side columns -->
-                    <div class="col-lg-8">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card recent-sales overflow-auto">
-                                    <div class="filter">
-                                        <a class="icon" href="#" data-bs-toggle="dropdown" style="float: right"><i
-                                                class="fa fa-plus"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                            <li>
-                                                <a class="dropdown-item" href="/vaccine/Add-vaccine.html">Add
-                                                    Brand</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <!-- end page title -->
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header justify-content-between d-flex align-items-center">
+                                    <h4 class="card-title">Inventory</h4>
+                                </div><!-- end card header -->
+                                <div class="card-body">          
+                                <form  id="myform" method="post" action="" style="padding-top: 10px;">
                                     
-
-                                    <div class="card-body">
-                                        <h5 class="card-title">Brand Inventory</h5>
-
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Id</th>
-                                                    <th scope="col">Brand Name</th>
-                                                    <th scope="col">Inventory</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="inventoryData"></tbody>
-                                        </table>
-                                    </div>
+                                    <div class="row mb-4">
+                                        <label for="oldpassword" class="col-sm-3 col-form-label">Add Inventory</label>
+                                        <div class="col-sm-9">
+                                            <input type="password" class="form-control"  name="oldpassword" id="oldpassword">
+                                        </div>
+                                    </div><!-- end row -->
+                                    <div class="row justify-content-end">
+                                        <div style="padding-left: 40%;">
+                                            <div>
+                                                <button type="submit" class="btn btn-primary w-md">Submit</button>
+                                            </div>
+                                        </div><!-- end col -->
+                                    </div><!-- end row -->
+                                </form><!-- end form -->
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                    <!-- End Form Layout -->
+                </div> <!-- container-fluid -->
+            </div><!-- End Page-content -->
+        </div>
 
     </main><!-- End #main -->
 
