@@ -60,7 +60,7 @@
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
-        <p id="doctorName" style="padding-left: 90%;"></p>
+        <p id="doctorName1" style="padding-left: 90%;"></p>
       </nav>
     </div><!-- End Page Title -->
     <div>
@@ -138,6 +138,8 @@
     $(window).on("load", function () {
         drData=JSON.parse(localStorage.getItem("drData"));
         console.log(drData)
+         $("#doctorName2").html(drData.Name)
+        $("#doctorName1").html(drData.Name)
         $("#doctorName").html(drData.Name)
     });
 

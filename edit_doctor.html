@@ -57,11 +57,11 @@
 
 
         <div class="pagetitle">
-            <h1>Doctor Form</h1>
+            <h1>Edit Doctor Form</h1>
             <nav>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-                <li class="breadcrumb-item active">Doctor Form</li>
+                <li class="breadcrumb-item active">Edit Doctor Form</li>
               </ol>
             </nav>
           </div><!-- End Page Title -->
@@ -73,7 +73,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-header justify-content-between d-flex align-items-center">
-                                    <h4 class="card-title">Doctor Form</h4>
+                                    <h4 class="card-title">Edit Doctor Form</h4>
                                 </div><!-- end card header -->
                                 <div class="card-body">          
                                 <form  id="myform" method="post" action="" style="padding-top: 10px;">
@@ -158,5 +158,20 @@
     <!-- <script src="assets/js/app.js"></script> -->
 
 </body>
+<script type="text/javascript">
+    var drData;
+    $(window).on("load", function () {
+        drData=JSON.parse(localStorage.getItem("drData"));
+        console.log(drData)
+        // console.log(drData.Name)
+        document.getElementById("name").value=drData.Name;
+        document.getElementById("email").value=drData.Email;
+        document.getElementById("mobileNumber").value=drData.MobileNumber;
+        document.getElementById("password").value=drData.Password;
+        document.getElementById("doctorType").value=drData.DoctorType;
+        document.getElementById("pmdc").value=drData.PMDC;
+        // $("#doctorName").html(drData.Name)
+    });
 
+  </script>
 </html>
