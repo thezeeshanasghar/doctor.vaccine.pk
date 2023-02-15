@@ -89,9 +89,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-8">
-                                      <p>CLinic Name</p>
-                                      <p>Address</p>
-                                      <p>Number</p>
+                                      <p>clinic: <span id="demo"></p>
+                                      <p>Address: <span id="demo1"></p>
+                                      <p>Number: <span id="demo2"></p>
                                   </div>
                                     <div class="col-8">
                                         <button type="button" class="btn btn-outline-primary btn-lg"><span class="pe-3">PATIENTS</span><span style="padding: 0 10px;background: blue; color: white;">1</span></button>
@@ -142,7 +142,25 @@
   <script src="/assets/vendor/php-email-form/validate.js"></script>
   <!-- Template/e -->
   <script src="/assets/js/main.js"></script>
+  <script type="text/javascript">
+    var drData;
+    $(window).on("load", function () {
+        drData=JSON.parse(localStorage.getItem("drData"));
+        console.log(drData)
+        console.log(drData.Clinic)
+        console.log(drData.Clinic.Address)
+        $("#demo1").html(drData.Clinic.Address)
+        $("#demo").html(drData.Clinic.Name)
+        $("#demo2").html(drData.Clinic.Number)
+        // document.getElementById("demo").innerHTML=drData.Clinic.Name;
+        // document.getElementById("demo1").innerHTML=drData.Clinic.Address;
+        // document.getElementById("demo2").innerHTML=drData.Clinic.Number;
+        //  $("#doctorName2").html(drData.Clinic.Address)
+        // $("#doctorName1").html(drData.Name)
+        // $("#doctorName").html(drData.Name)
+    });
 
+  </script>
   
 
   
