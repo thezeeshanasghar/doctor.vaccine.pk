@@ -144,6 +144,19 @@
                                         </div>
                                     </div><!-- end row -->
 
+                                    <div class="row mb-4">
+                                        <label for="clinicid" class="col-sm-3 col-form-label">Clinic ID</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="clinicid" id="clinicid" required />
+                                            <div class="invalid-feedback">
+                                                Please Enter The Clinic ID
+                                            </div>
+                                            <div class="valid-feedback">
+                                                Looks Good!
+                                            </div>
+                                        </div>
+                                    </div><!-- end row -->
+
                                     <div class="row mb-3">
                                         <label for="isepidone" class="col-sm-3 col-form-label">IsEPIDone</label>
                                         <div class="col-sm-9">
@@ -178,6 +191,10 @@
                                             </div>
                                         </div><!-- end col -->
                                     </div><!-- end row -->
+                                    <div id="successMessage" style="display:none;" class="alert alert-success alert-dismissible fade show" role="alert"> <i class="bi bi-check-circle me-1"></i>your patient add successfully
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                        <div id="errorMessage" style="display:none;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>Your patient not add successfully 
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                 </form><!-- end form -->
                                 </div>
                             </div><!-- end card -->
@@ -218,21 +235,24 @@
             $("#myform").submit(function (e) {
                 e.preventDefault();
                 // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
-                var data = JSON.stringify({ "Name": $("#name").val(),"Guardian": $("#gname").val(),"FatherName": $("#fname").val(),"Email": $("#email").val(),"DOB": $("#dob").val(),"Gender": $("#gender").val(),"Type": $("#type").val(),"City": $("#city").val(),"CNIC": $("#cnic").val(),"PreferredSchedule": $("#pSche").val(),"IsEPIDone": $("#isepi").is(':checked')? true:false,"IsVerified": $("#isver").is(":checked")? true:false,"IsInactive": $("#isinac").is(":checked")? true:false})
+                var data = JSON.stringify({ "name": $("#name").val(),"guardian": $("#gname").val(),"fatherName": $("#fname").val(),"email": $("#email").val(),"dob": $("#dob").val(),"gender": $("#gender").val(),"type": $("#Type").val(),"city": $("#city").val(),"cnic": $("#cnic").val(),"preferredSchedule": $("#pSche").val(),"clinicId": $("#clinicid").val(),"isEPIDone": $("#isepi").is(':checked')? true:false,"isVerified": $("#isver").is(":checked")? true:false,"isInactive": $("#isinac").is(":checked")? true:false,"clinicId": 6})
                 console.log(data);
                 $.ajax({
                     type: "post",
                     url: "http://localhost:5041/api/Child",
                     dataType: "json",
                     data: data,
-                    contentType: "application/json; charset=utf-8",
+                    contentType: "application/json-patch+json",
                     success: function (data) {
-                         alert("your patiet add successfully");
+                        // alert("your patient add successfully");
+                        $('#errorMessage').hide('fast'); 
                         $("#successMessage").show();
                     },
                     error:function(data){
-                        alert("error")
+                       // alert(data.statusText)
+                       $("#successMessage").hide('fast');
                         $("#errorMessage").show();
+                       // console.log(data.statusText);
                     }
 
                 });

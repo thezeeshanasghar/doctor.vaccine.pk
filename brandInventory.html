@@ -123,6 +123,30 @@
     <script src="assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
 
+    <script src="/assets/js/main.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.get(
+                "http://localhost:5041/api/BrandInventory",
+                function (data, status) {
+                    console.log(data);
+                    $.each(data, function (val, text) {
+                        console.log(text);
+                        $("#inventoryData").append(`
+                        <tr>
+                            <td>${text.Id}</td>
+                            <td data-id="${text.Name}">${text.BrandId}</td>
+                            <td data-id="${text.Name}">${text.Count}</td>
+                        </tr>
+                            `);
+                            
+                    });
+                }
+        
+            );
+        });
+</script>
+
     <!-- Template Main JS File -->
     <!-- <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>

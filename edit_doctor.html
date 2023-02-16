@@ -119,10 +119,15 @@
                                     <div class="row justify-content-end">
                                         <div style="padding-left: 40%;">
                                             <div>
-                                                <button type="submit" class="btn btn-primary w-md">Submit</button>
+                                                <button type="submit" class="btn btn-primary w-md">Update</button>
                                             </div>
                                         </div><!-- end col -->
                                     </div><!-- end row -->
+                                    <div id="successMessage" style="display:none;" class="alert alert-success alert-dismissible fade show" role="alert"> <i class="bi bi-check-circle me-1"></i>your patient update successfully
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                        <div id="errorMessage" style="display:none;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>Something went wrong 
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+
                                 </form><!-- end form -->
                                 </div>
                             </div><!-- end card -->
@@ -163,7 +168,7 @@
     $(window).on("load", function () {
         drData=JSON.parse(localStorage.getItem("drData"));
         console.log(drData)
-        // console.log(drData.Name)
+        var ids= drData.Id
         document.getElementById("name").value=drData.Name;
         document.getElementById("email").value=drData.Email;
         document.getElementById("mobileNumber").value=drData.MobileNumber;
@@ -172,6 +177,34 @@
         document.getElementById("pmdc").value=drData.PMDC;
         // $("#doctorName").html(drData.Name)
     });
+    $(function () {
+            $("#myform").submit(function (e) {
+                e.preventDefault();
+                // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
+                var data = JSON.stringify({"id": drData.Id ,"name": $("#name").val(),"email": $("#email").val(),"mobileNumber": $("#mobileNumber").val(),"password": $("#password").val(),"doctortype": $("#doctorType").val(),"pmdc": $("#pmdc").val()})
+                console.log(data);
+                $.ajax({
+                    type: "patch",
+                    url: `http://localhost:5041/api/Doctor/drData.Id`,
+                    dataType: "json",
+                    data: data,
+                    contentType: "application/json-patch+json",
+                    success: function (data) {
+                        // alert("your patient add successfully");
+                        $('#errorMessage').hide('fast'); 
+                        $("#successMessage").show();
+                    },
+                    error:function(data){
+                       // alert(data.statusText)
+                       $("#successMessage").hide('fast');
+                        $("#errorMessage").show();
+                       // console.log(data.statusText);
+                    }
 
+                });
+                document.getElementById("myform").reset();
+
+            });
+        });
   </script>
 </html>
