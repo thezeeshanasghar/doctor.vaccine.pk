@@ -141,7 +141,7 @@
                     console.log(JSON.stringify(drData.doctorSchedule));
                     $.ajax({
                         type: "post",
-                        url: "http://localhost:5041/api/doctor",
+                        url: "https://myapi.fernflowers.com/api/doctor",
                         dataType: "json",
                         data: JSON.stringify(drData),
                         contentType: "application/json; charset=utf-8",
@@ -160,7 +160,7 @@
     </script>
       <script type="text/javascript">
         $(function () {
-            $.get("http://localhost:5041/api/Dose", function (data, status) {
+            $.get("https://myapi.fernflowers.com/api/Dose", function (data, status) {
                 
                 $.each(data, function (val, text) {
                     // console.log(text);

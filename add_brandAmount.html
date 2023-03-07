@@ -140,7 +140,7 @@
         dropdown.prop('selectedIndex', 0);
         $(function () {
 
-            $.get("http://localhost:5041/BrandName", function (data) {
+            $.get("https://myapi.fernflowers.com/BrandName", function (data) {
                 $.each(data, function (index, value) {
                     $("#Brandsdropdown").append("<option value=" + value.Id + ">" + value.Name + "</option>");  
                 })
@@ -164,7 +164,7 @@
                 console.log(data);
                 $.ajax({
                     type: "post",
-                    url: "http://localhost:5041/api/BrandAmount",
+                    url: "https://myapi.fernflowers.com/api/BrandAmount",
                     dataType: "json",
                     data: data,
                     contentType: "application/json; charset=utf-8",
