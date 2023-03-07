@@ -13,4 +13,4 @@ jobs:
       with:
         server: ${{SECRETS.FTP_URL}}
         username: ${{SECRETS.FTP_USERNAME}}
-        password: ${{SECRETS.FTP_PASSWORD
+        password: ${{SECRETS.FTP_PASSWORD}}
