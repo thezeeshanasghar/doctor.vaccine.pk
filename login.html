@@ -160,7 +160,7 @@
                   }
                   else{
                     localStorage.setItem("drData", JSON.stringify(response));
-                    console.log(JSON.stringify(localStorage.getItem("drData")));
+                    sessionStorage.setItem('login', true);
                     
                     window.location.assign("/index.html")
                     
