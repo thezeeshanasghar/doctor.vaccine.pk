@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-   
+
     <title>Clinic Schedule</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -40,7 +40,7 @@
   ======================================================== -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    
+
     <style>
         .switch {
             position: relative;
@@ -49,12 +49,12 @@
             height: 20px;
         }
 
-            /* Hide default HTML checkbox */
-            .switch input {
-                opacity: 0;
-                width: 0;
-                height: 0;
-            }
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
 
         /* The slider */
         .slider {
@@ -69,27 +69,27 @@
             transition: .4s;
         }
 
-            .slider:before {
-                position: absolute;
-                content: "";
-                height: 10px;
-                width: 10px;
-                left: 4px;
-                bottom: 4px;
-                background-color: white;
-                -webkit-transition: .4s;
-                transition: .4s;
-            }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 10px;
+            width: 10px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
 
-        input:checked + .slider {
+        input:checked+.slider {
             background-color: #3d0dec;
         }
 
-        input:focus + .slider {
+        input:focus+.slider {
             box-shadow: 0 0 1px #3d0dec;
         }
 
-        input:checked + .slider:before {
+        input:checked+.slider:before {
             -webkit-transform: translateX(26px);
             -ms-transform: translateX(26px);
             transform: translateX(26px);
@@ -100,9 +100,9 @@
             border-radius: 30px;
         }
 
-            .slider.round:before {
-                border-radius: 40%;
-            }
+        .slider.round:before {
+            border-radius: 40%;
+        }
     </style>
 </head>
 
@@ -124,8 +124,10 @@
                                     <div class="card" style="padding-bottom: 20px;">
                                         <div style="padding-top: 10px;">
                                             <label id="Mondaytxt">Monday</label>
-                                            <label class="switch" id="monday" name="Monday" formControlName="Monday" style="left: 90%;">
-                                                <input type="checkbox" id="MondayC" onchange="Monday()">
+                                            <label class="switch" id="monday" name="Monday" formControlName="Monday"
+                                                style="left: 90%;">
+                                                <input type="checkbox" class="checkboxes" id="MondayC"
+                                                    onchange="Monday()" />
                                                 <span class="slider round"></span>
                                             </label>
                                         </div>
@@ -133,13 +135,14 @@
                                         <div id="Monday" style="display:none">
                                             <div style="padding-top: 2%;">
                                                 <label class="VerticalAlignMiddle">Session:1 </label>
-                                                <input type="checkbox" id="mondayS1">
+                                                <input class="checkboxes" type="checkbox" id="mondayS1">
                                                 <label>Start Time</label>
                                                 <input type="time" id="mS" name="appt">
                                                 <label>End Time</label>
                                                 <input type="time" id="mE" name="appt">
-                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2 </label>
-                                                <input type="checkbox" id="mondayS2">
+                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2
+                                                </label>
+                                                <input class="checkboxes" type="checkbox" id="mondayS2">
                                                 <label>Start Time</label>
                                                 <input type="time" id="mS2" name="appt">
                                                 <label>End Time</label>
@@ -151,8 +154,10 @@
                                     <div class="card" style="padding-bottom: 20px;">
                                         <div style="padding-top: 10px;">
                                             <label id="Tuesdaytxt">Tuesday</label>
-                                            <label class="switch" id="tuesday" name="Tuesday" formControlName="Tuesday" style="left: 90%;">
-                                                <input type="checkbox" id="TuesdayC" onclick="Tuesday()">
+                                            <label class="switch" id="tuesday" name="Tuesday" formControlName="Tuesday"
+                                                style="left: 90%;">
+                                                <input type="checkbox" class="checkboxes" id="TuesdayC"
+                                                    onclick="Tuesday()" />
                                                 <span class="slider round"></span>
                                             </label>
                                         </div>
@@ -165,7 +170,8 @@
                                                 <input type="time" id="Ts" name="appt">
                                                 <label>End Time</label>
                                                 <input type="time" id="Te" name="appt">
-                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2 </label>
+                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2
+                                                </label>
                                                 <input type="checkbox" id="tuesdayS2">
                                                 <label>Start Time</label>
                                                 <input type="time" id="Ts2" name="appt">
@@ -178,8 +184,10 @@
                                     <div class="card" style="padding-bottom: 20px;">
                                         <div style="padding-top: 10px;">
                                             <label id="Wednesdaytxt">Wednesday</label>
-                                            <label class="switch" id="wednesday" name="Wednesday" formControlName="Wednesday" style="left: 88%;">
-                                                <input type="checkbox" id="WednesdayC" onclick="Wednesday()">
+                                            <label class="switch" id="wednesday" name="Wednesday"
+                                                formControlName="Wednesday" style="left: 88%;">
+                                                <input type="checkbox" class="checkboxes" id="WednesdayC"
+                                                    onclick="Wednesday()" />
                                                 <span class="slider round"></span>
                                             </label>
                                         </div>
@@ -192,7 +200,8 @@
                                                 <input type="time" id="wS" name="appt">
                                                 <label>End Time</label>
                                                 <input type="time" id="wE" name="appt">
-                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2 </label>
+                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2
+                                                </label>
                                                 <input type="checkbox" id="wednesdayS2">
                                                 <label>Start Time</label>
                                                 <input type="time" id="wS2" name="appt">
@@ -205,8 +214,10 @@
                                     <div class="card" style="padding-bottom: 20px;">
                                         <div style="padding-top: 10px;">
                                             <label id="Thursdaytxt">Thursday</label>
-                                            <label class="switch" id="thursday" name="Thursday" formControlName="Thursday" style="left: 90%;">
-                                                <input type="checkbox" id="ThursdayC" onclick="Thursady()">
+                                            <label class="switch" id="thursday" name="Thursday"
+                                                formControlName="Thursday" style="left: 90%;">
+                                                <input type="checkbox" class="checkboxes" id="ThursdayC"
+                                                    onclick="Thursady()" />
                                                 <span class="slider round"></span>
                                             </label>
                                         </div>
@@ -219,7 +230,8 @@
                                                 <input type="time" id="thuS" name="appt">
                                                 <label>End Time</label>
                                                 <input type="time" id="thuE" name="appt">
-                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2 </label>
+                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2
+                                                </label>
                                                 <input type="checkbox" id="thursdayS2">
                                                 <label>Start Time</label>
                                                 <input type="time" id="thuS2" name="appt">
@@ -232,8 +244,9 @@
                                     <div class="card" style="padding-bottom: 20px;">
                                         <div style="padding-top: 10px;">
                                             <label id="Fridaytxt">Friday</label>
-                                            <label class="switch" id="friday" name="Friday" formControlName="Friday" style="left: 90%;">
-                                                <input type="checkbox" id="FridayC" onclick="Friday()">
+                                            <label class="switch" id="friday" name="Friday" formControlName="Friday"
+                                                style="left: 90%;">
+                                                <input type="checkbox" class="checkboxes" id="FridayC" />
                                                 <span class="slider round"></span>
                                             </label>
                                         </div>
@@ -246,7 +259,8 @@
                                                 <input type="time" id="fS" name="appt">
                                                 <label>End Time</label>
                                                 <input type="time" id="fE" name="appt">
-                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2 </label>
+                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2
+                                                </label>
                                                 <input type="checkbox" id="fridayS2">
                                                 <label>Start Time</label>
                                                 <input type="time" id="fS2" name="appt">
@@ -259,8 +273,10 @@
                                     <div class="card" style="padding-bottom: 20px;">
                                         <div style="padding-top: 10px;">
                                             <label id="Saturdaytxt">Saturday</label>
-                                            <label class="switch" id="saturday" name="Saturday" formControlName="Saturday" style="left: 90%;">
-                                                <input type="checkbox" id="SaturdayC" onclick="Saturday()">
+                                            <label class="switch" id="saturday" name="Saturday"
+                                                formControlName="Saturday" style="left: 90%;">
+                                                <input type="checkbox" class="checkboxes" id="SaturdayC"
+                                                    onclick="Saturday()" />
                                                 <span class="slider round"></span>
                                             </label>
                                         </div>
@@ -273,7 +289,8 @@
                                                 <input type="time" id="SatS" name="appt">
                                                 <label>End Time</label>
                                                 <input type="time" id="SatE" name="appt">
-                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2 </label>
+                                                <label class="VerticalAlignMiddle"
+                                                    style="padding-left: 10%;">Session:2</label>
                                                 <input type="checkbox" id="saturdayS2">
                                                 <label>Start Time</label>
                                                 <input type="time" id="SatS2" name="appt">
@@ -282,13 +299,14 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <!-- Sunday -->
                                     <div class="card" style="padding-bottom: 20px;">
                                         <div style="padding-top: 10px;">
                                             <label id="Sundaytxt">Sunday</label>
-                                            <label class="switch" id="sunday" name="Sunday" formControlName="Sunday" style="left: 90%;">
-                                                <input type="checkbox" id="SundayC" onclick="Sunday()">
+                                            <label class="switch" id="sunday" name="Sunday" formControlName="Sunday"
+                                                style="left: 90%;">
+                                                <input type="checkbox" class="checkboxes" id="SundayC"
+                                                    onclick="Sunday()" />
                                                 <span class="slider round"></span>
                                             </label>
                                         </div>
@@ -301,11 +319,12 @@
                                                 <input type="time" id="sunS" name="appt">
                                                 <label>End Time</label>
                                                 <input type="time" id="sunE" name="appt">
-                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2 </label>
+                                                <label class="VerticalAlignMiddle" style="padding-left: 10%;">Session:2
+                                                </label>
                                                 <input type="checkbox" id="sundayS2">
                                                 <label>Start Time</label>
                                                 <input type="time" id="sunS2" name="appt">
-                                             <label>End Time</label>
+                                                <label>End Time</label>
                                                 <input type="time" id="sunE2" name="appt">
                                             </div>
                                         </div>
@@ -343,9 +362,39 @@
     <!-- Template/ Main JS File -->
     <script src="/assets/js/main.js"></script>
     <script>
+        // $(document).ready(function () {
+        //     var checkboxes = $('.checkboxes');
+        //     checkboxes.change(function () {
+        //         if ($('.switch:checked').length > 0) {
+        //             checkboxes.removeAttr('required');
+        //         } else {
+        //             checkboxes.attr('required', 'required');
+
+        //         }
+        //     });
+        // });
+        // function deRequire(elClass) {
+        //     el = document.getElementsByClassName(elClass);
+
+        //     var atLeastOneChecked = false; //at least one cb is checked
+        //     for (i = 0; i < el.length; i++) {
+        //         if (el[i].checked === true) {
+        //             atLeastOneChecked = true;
+        //         }
+        //     }
+
+        //     if (atLeastOneChecked === true) {
+        //         for (i = 0; i < el.length; i++) {
+        //             el[i].required = false;
+        //         }
+        //     } else {
+        //         for (i = 0; i < el.length; i++) {
+        //             el[i].required = true;
+        //         }
+        //     }
+        // }
         function Monday() {
             var checkBox = document.getElementById("MondayC");
-           
             var text = document.getElementById("Monday");
             if (checkBox.checked == true) {
                 text.style.display = "block";
@@ -407,33 +456,49 @@
                 text.style.display = "none";
             }
         }
-    </script>
-
-    <script type="text/javascript">
         var drData;
         $(window).on("load", function () {
-            drData=JSON.parse(localStorage.getItem("drData"));
+            drData = JSON.parse(localStorage.getItem("drData"));
             console.log(drData)
-            if(!drData){
+            if (!drData) {
                 alert("Please add Dr details first. Go to S1 form");
-            }else if(!drData.clinic){
-                alert("Please add clinic details first. Go to S2 form"); 
+            } else if (!drData.clinic) {
+                alert("Please add clinic details first. Go to S2 form");
             }
         });
         console.log(drData)
         $(function () {
-            function getClinicTiming(day, session, start, end){
-                return {Day : day, Session : session, StartTime : start, EndTime : end};
+            function getClinicTiming(day, session, start, end) {
+                return { Day: day, Session: session, StartTime: start, EndTime: end };
             }
             $("#myform").submit(function (e) {
                 e.preventDefault();
                 var ClinicData = [];
+                // var checkboxes = $('.checkboxes');
+                // checkboxes.change(function () {
+
+                // console.log("yes")
+
+                //         checkboxes.removeAttr('required');
+                //     } else {
+                //         checkboxes.attr('required', 'required');
+                //          alert("please select slider")
+                //     }
+                // });
+                // var arr = $(this).serialize().toString();
+                // if (arr.indexOf("hobbies") < 0) {
+                //     e.preventDefault();
+                //     alert("You must select at least one hobbie");
+                // }
+
                 var Monday = $("#MondayC").is(':checked');
                 if (Monday) {
                     var Day = $("#Mondaytxt").text();
                     var Session1 = $("#mondayS1").is(':checked');
                     if (Session1) {
+                        // document.getElementById("mS").required = true;
                         var StartTime = $("#mS").val();
+                        // document.getElementById("mE").required = true;
                         var EndTime = $("#mE").val();
                         ClinicData.push(getClinicTiming(Day, "Session1", StartTime, EndTime));
                     }
@@ -453,7 +518,7 @@
                 if (Tuesday) {
                     var Day = $("#Tuesdaytxt").text();
                     var Session1 = $("#tuesdayS1").is(':checked');
-                    
+
                     if (Session1) {
                         var StartTime = $("#Ts").val();
                         var EndTime = $("#Te").val();
@@ -475,7 +540,7 @@
                 if (Wednesday) {
                     var Day = $("#Wednesdaytxt").text();
                     var Session1 = $("#wednesdayS1").is(':checked');
-                    
+
                     if (Session1) {
                         var StartTime = $("#wS").val();
                         var EndTime = $("#wE").val();
@@ -495,7 +560,7 @@
                 if (Thursday) {
                     var Day = $("#Thursdaytxt").text();
                     var Session1 = $("#thursdayS1").is(':checked');
-                    
+
                     if (Session1) {
                         var StartTime = $("#thuS").val();
                         var EndTime = $("#thuE").val();
@@ -509,7 +574,7 @@
                         ClinicData.push(getClinicTiming(Day, "Session2", StartTime, EndTime));
                     }
                 }
-                
+
                 // friday
                 var Friday = $("#FridayC").is(':checked');
                 if (Friday) {
@@ -553,7 +618,6 @@
                 }
 
                 //sunday
-2
                 var Sunday = $("#SundayC").is(':checked');
                 if (Sunday) {
                     var Day = $("#Sundaytxt").text();
@@ -564,7 +628,7 @@
                         ClinicData.push(getClinicTiming(Day, "Session1", StartTime, EndTime));
 
                     }
-                   
+
                     var Session2 = $("#sundayS2").is(':checked');
                     if (Session2) {
                         var StartTime = $("#sunS2").val();
@@ -573,20 +637,28 @@
 
                     }
                 }
-              
-                if(drData && drData.clinic){
-                    drData.clinic.clinicTiming = ClinicData;
-                    console.log(JSON.stringify(drData));
-                   
-                    localStorage.setItem("drData", JSON.stringify(drData));
-                  
-                    window.location.assign("/signup-doctor-s4.html");               
-                }
 
-                else{
-                    alert("Pleae fill S1, S2 first");
+                else {
+                    window.location.assign("/signup-doctor-s3.html");
                 }
-                
+                var box = $('input[class="checkboxes"]:checked').length;
+                console.log(box);
+                if (box > 0) {
+                    if (drData && drData.clinic) {
+                        drData.clinic.clinicTiming = ClinicData;
+                        console.log(JSON.stringify(drData));
+
+                        localStorage.setItem("drData", JSON.stringify(drData));
+
+                        window.location.assign("/signup-doctor-s4.html");
+                    }
+
+                    else {
+                        alert("Pleae fill S1, S2 first");
+                    }
+                }else{
+                    alert("please")
+                }
             });
         });
     </script>
