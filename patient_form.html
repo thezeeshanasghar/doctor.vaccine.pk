@@ -139,7 +139,7 @@
                                     <div class="row mb-4">
                                         <label for="doctorType" class="col-sm-3 col-form-label">CNIC</label>
                                         <div class="col-sm-9">
-                                            <input type="number" class="form-control" name="cnic" id="cnic">
+                                            <input type="text" class="form-control" name="cnic" id="cnic">
                                         </div>
                                     </div><!-- end row -->
 
@@ -151,17 +151,30 @@
                                     </div><!-- end row -->
 
                                     <div class="row mb-4">
-                                        <label for="clinicid" class="col-sm-3 col-form-label">Clinic ID</label>
+                                        <label for="Clinic" class="col-sm-3 col-form-label">Clinic</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="clinicid" id="clinicid" required />
-                                            <div class="invalid-feedback">
-                                                Please Enter The Clinic ID
-                                            </div>
-                                            <div class="valid-feedback">
-                                                Looks Good!
-                                            </div>
+                                            
+                                                <select formControlName="Clinic" id="clinic" class="form-select" required>
+                                                    <select name="clinic">
+                                                       
+                                                    </select>
+                                                </select>
+                                            
                                         </div>
-                                    </div><!-- end row -->
+                                    </div> 
+
+                                    <div class="row mb-4">
+                                        <label for="Doctor" class="col-sm-3 col-form-label">Doctor</label>
+                                        <div class="col-sm-9">
+                                            
+                                                <select formControlName="Doctor" id="doc" class="form-select" required>
+                                                    <select name="doctorName">
+                                                       
+                                                    </select>
+                                                </select>
+                                            
+                                        </div>
+                                    </div> 
 
                                     <div class="row mb-3">
                                         <label for="isepidone" class="col-sm-3 col-form-label">IsEPIDone</label>
@@ -188,7 +201,7 @@
                                                 <input type="checkbox" class="form-check-input" id="isinac">   
                                             </div>
                                         </div>
-                                    </div><!-- end row -->
+                                    </div>
 
                                     <div class="row justify-content-end">
                                         <div style="padding-left: 40%;">
@@ -237,15 +250,45 @@
 
 </body>
 <script type="text/javascript">
+    const doctorDropdown = document.getElementById('doc');
+
+    fetch('http://localhost:5041/api/Doctor')
+        .then(response => response.json())
+        .then(doctors => {
+            doctors.forEach(doctor => {
+                const option = document.createElement('option');
+                option.value = doctor.Id;
+                option.text = doctor.Name;
+                doctorDropdown.add(option);
+            });
+        })
+        .catch(error => console.error(error));
+</script>
+<script type="text/javascript">
+    const clinicDropdown = document.getElementById('clinic');
+
+    fetch('http://localhost:5041/api/Clinic')
+        .then(response => response.json())
+        .then(clinics => {
+            clinics.forEach(clinic => {
+                const option = document.createElement('option');
+                option.value = clinic.Id;
+                option.text = clinic.Name;
+                clinicDropdown.add(option);
+            });
+        })
+        .catch(error => console.error(error));
+</script>
+<script type="text/javascript">
     $(function () {
             $("#myform").submit(function (e) {
                 e.preventDefault();
                 // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
-                var data = JSON.stringify({ "name": $("#name").val(),"guardian": $("#gname").val(),"fatherName": $("#fname").val(),"email": $("#email").val(),"dob": $("#dob").val(),"gender": $("#gender").val(),"type": $("#Type").val(),"city": $("#city").val(),"cnic": $("#cnic").val(),"preferredSchedule": $("#pSche").val(),"clinicId": $("#clinicid").val(),"isEPIDone": $("#isepi").is(':checked')? true:false,"isVerified": $("#isver").is(":checked")? true:false,"isInactive": $("#isinac").is(":checked")? true:false,"clinicId": 6})
+                var data = JSON.stringify({ "name": $("#name").val(),"guardian": $("#gname").val(),"fatherName": $("#fname").val(),"email": $("#email").val(),"dob": $("#dob").val(),"gender": $("#gender").val(),"type": $("#Type").val(),"city": $("#city").val(),"cnic": $("#cnic").val(),"preferredSchedule": $("#pSche").val(),"clinicId": parseInt($("#clinic").val()),"isEPIDone": $("#isepi").is(':checked')? true:false,"isVerified": $("#isver").is(":checked")? true:false,"isInactive": $("#isinac").is(":checked")? true:false,"doctorId":parseInt($("#doc").val()) })
                 console.log(data);
                 $.ajax({
                     type: "post",
-                    url: "https://myapi.fernflowers.com/api/Child",
+                    url: "http://localhost:5041/api/Child",
                     dataType: "json",
                     data: data,
                     contentType: "application/json-patch+json",
