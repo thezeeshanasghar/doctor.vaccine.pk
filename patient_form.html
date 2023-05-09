@@ -252,7 +252,7 @@
 <script type="text/javascript">
     const doctorDropdown = document.getElementById('doc');
 
-    fetch('http://localhost:5041/api/Doctor')
+    fetch('https://myapi.fernflowers.com/api/Doctor')
         .then(response => response.json())
         .then(doctors => {
             doctors.forEach(doctor => {
@@ -267,7 +267,7 @@
 <script type="text/javascript">
     const clinicDropdown = document.getElementById('clinic');
 
-    fetch('http://localhost:5041/api/Clinic')
+    fetch('https://myapi.fernflowers.com/api/Clinic')
         .then(response => response.json())
         .then(clinics => {
             clinics.forEach(clinic => {
@@ -288,7 +288,7 @@
                 console.log(data);
                 $.ajax({
                     type: "post",
-                    url: "http://localhost:5041/api/Child",
+                    url: "https://myapi.fernflowers.com/api/Child",
                     dataType: "json",
                     data: data,
                     contentType: "application/json-patch+json",
