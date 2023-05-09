@@ -197,9 +197,10 @@
                 // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
                 var data = JSON.stringify({"id": drData.Id ,"name": $("#name").val(),"email": $("#email").val(),"mobileNumber": $("#mobileNumber").val(),"password": $("#password").val(),"doctortype": $("#doctorType").val(),"pmdc": $("#pmdc").val()})
                 console.log(data);
+                var id=drData.Id;
                 $.ajax({
                     type: "patch",
-                    url: `https://myapi.fernflowers.com/api/Doctor/drData.Id`,
+                    url: `https://myapi.fernflowers.com/api/Doctor/UpdateDoctor/${id}`,
                     dataType: "json",
                     data: data,
                     contentType: "application/json-patch+json",
