@@ -37,14 +37,12 @@
 
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet" />
-
     <!-- =======================================================
       * Template Name: NiceAdmin - v2.4.1
       * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
       * Author: BootstrapMade.com
       * License: https://bootstrapmade.com/license/
       ======================================================== -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 
@@ -55,14 +53,9 @@
         onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
 </header>
 <!--End Header -->
-
-   
-
     <iframe src="sidebar.html"
         onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
-
     <main id="main" class="main">
-
         <div class="pagetitle">
             <h1>Doctor Detail</h1>
             <nav>
@@ -72,25 +65,22 @@
                 </ol>
             </nav>
         </div><!-- End Page Title -->
-
         <section class="section dashboard" style="width:50%;">
             <div class="row" id="clinicdata">
-                
                 <div class="card" style="width: fit-content;">
                     <div class="card-body">
                         <content>
                             <div class="welcome-card">
-
                                 <div class="row" style="padding-top: 15px;">
-                                    <div class="col-8">
-                                        <p><span
-                                                style="padding-left: px; font-weight: bold;font-size: 20px;"><span id="demo3"></span>
+                                    <div class="col-12">
+                                        <p>
+                                            <span style="padding-left: px; font-weight: bold;font-size: 20px;"><span id="demo3"></span>
                                         </p>
                                     </div>
-                                    <div class="col-4 d-flex justify-content-end flex-row">
+                                    <!-- <div class="col-4 d-flex justify-content-end flex-row">
                                         <i class="fas fa-edit pe-3" style="font-size: 30px; color: blue;"></i>
                                         <i class="fa-solid fa-trash-can" style="font-size: 30px; color: blue;"></i>
-                                    </div>
+                                    </div> -->
                                     <hr>
                                 </div>
                                 <div class="row">
@@ -104,18 +94,12 @@
                                         <button type="button" class="btn btn-outline-success btn-lg"><span class="pe-3">ONLINE</span></button>
                                     </div>
                                 </div>
-
-
                             </div>
-
                         </content>
                     </div>
                 </div>
-
             </div>
-
         </section>
-
     </main><!-- End #main -->
 
     <footer id="footer" class="footer">
@@ -134,7 +118,6 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
           class="bi bi-arrow-up-short"></i></a>
-
   <!-- Vendor JS Files -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></script>
   <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -166,10 +149,76 @@
         // $("#doctorName1").html(drData.Name)
         // $("#doctorName").html(drData.Name)
     });
-
+    $(document).on("click",".fa-trash-can",function(){
+            console.log('success');
+            $('#basicModal').modal('show');
+            var ids=$(this).data("id");
+            console.log(ids);
+               var ele=this;
+            //    let text = "if you are sure to delete then press ok either press cancel";
+            // if (confirm(text) == true) {
+                // $('#basicModal').modal('show');
+                $(document).on("click",".btn-primary",function(){
+                        $('#basicModal').modal("hide");
+            $.ajax({
+                   type: "delete",
+                   data: ids,
+                   url: `https://myapi.fernflowers.com/api/Doctor/${ids}`,
+                    success:function(data) {
+                       console.log(data)
+                       $("#errorMessage").hide('fast');
+                       $("#successMessage").show();
+                       $("#zxcv").html("Your selected doctor delete successfully")
+                       $(ele).closest("#Approved").fadeOut();
+                    },
+                    error: function(data) {
+                    console.log(data)
+                    $("#successMessage").hide('fast');
+                    $("#errorMessage").show();
+                    $("#asdf").html(data.responseText)
+                   },
+                })
+            })
+                //    }
+                //    else {
+                //            $("#error-message").html("Can't Delete Record.").slideDown();
+                //             $("#success-message").slideUp();           
+                //         }
+           }); $(document).on("click",".fa-trash-can",function(){
+            console.log('success');
+            $('#basicModal').modal('show');
+            var ids=$(this).data("id");
+            console.log(ids);
+               var ele=this;
+            //    let text = "if you are sure to delete then press ok either press cancel";
+            // if (confirm(text) == true) {
+                // $('#basicModal').modal('show');
+                $(document).on("click",".btn-primary",function(){
+                        $('#basicModal').modal("hide");
+            $.ajax({
+                   type: "delete",
+                   data: ids,
+                   url: `https://myapi.fernflowers.com/api/Doctor/${ids}`,
+                    success:function(data) {
+                       console.log(data)
+                       $("#errorMessage").hide('fast');
+                       $("#successMessage").show();
+                       $("#zxcv").html("Your selected doctor delete successfully")
+                       $(ele).closest("#Approved").fadeOut();
+                    },
+                    error: function(data) {
+                    console.log(data)
+                    $("#successMessage").hide('fast');
+                    $("#errorMessage").show();
+                    $("#asdf").html(data.responseText)
+                   },
+                })
+            })
+                //    }
+                //    else {
+                //            $("#error-message").html("Can't Delete Record.").slideDown();
+                //             $("#success-message").slideUp();           
+                //         }
+           });
   </script>
-  
-
-  
-
 </body>
